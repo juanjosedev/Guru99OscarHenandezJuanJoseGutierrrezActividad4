@@ -44,8 +44,8 @@ public class PasswordInputTest {
 		pip.sendForm(oldpassword, newpassword, newpassword);
 		Alert alert = driver.switchTo().alert();
 		
-		String expected = "Password is Changed";
-		String actual = alert.getText();
+		String expected = "password is changed";
+		String actual = alert.getText().toLowerCase();
 		
 		assertEquals(expected, actual);
 		

@@ -19,15 +19,15 @@ public class PasswordInputPage {
 		submitButton = By.name("sub");
 	}
 	
-	public void sendOldPassword(String oldPassword) {
+	public void enterOldPassword(String oldPassword) {
 		driver.findElement(oldPasswordField).sendKeys(oldPassword);
 	}
 	
-	public void sendNewPassword(String newPassword) {
+	public void enterNewPassword(String newPassword) {
 		driver.findElement(newPasswordField).sendKeys(newPassword);
 	}
 	
-	public void sendConfirmPassword(String confirmPassword) {
+	public void enterConfirmPassword(String confirmPassword) {
 		driver.findElement(confirmPasswordField).sendKeys(confirmPassword);
 	}
 	
@@ -37,9 +37,9 @@ public class PasswordInputPage {
 	
 	public void sendForm(String oldPassword, String newPassword, String confirmPassword) {
 		
-		sendOldPassword(oldPassword);
-		sendNewPassword(newPassword);
-		sendConfirmPassword(confirmPassword);
+		enterOldPassword(oldPassword);
+		enterNewPassword(newPassword);
+		enterConfirmPassword(confirmPassword);
 		pressSubmit();
 		
 	}
