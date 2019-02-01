@@ -13,7 +13,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.PasswordInputPage;
 
-public class PasswordInputTest {
+public class CP_003_Cambio_Password_Test {
 
 	private WebDriver driver;
 	private LoginPage lp;
@@ -32,13 +32,13 @@ public class PasswordInputTest {
 	}
 	
 	@Test
-	public void cp_3() {
+	public void CP_003_Cambio_Password() {
 		
-		String oldpassword = "jose20#";
-		String newpassword = "jose20#";
+		String oldpassword = "jose20#1";
+		String newpassword = "jose20#99";
 		
 		lp = new LoginPage(driver);
-		lp.sendLogin("mngr175509", "jose20#");
+		lp.sendLogin("mngr175509", "jose20#1");
 		hp = new HomePage(driver);
 		pip = hp.getBarraNavegacion().goToPasswordInputPage();
 		pip.sendForm(oldpassword, newpassword, newpassword);

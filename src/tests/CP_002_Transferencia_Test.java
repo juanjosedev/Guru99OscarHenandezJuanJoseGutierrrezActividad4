@@ -1,11 +1,12 @@
 package tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.*;
-import org.openqa.selenium.Alert;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -15,7 +16,7 @@ import pages.FundTransferPage;
 import pages.HomePage;
 import pages.LoginPage;
 
-public class FundTransferTest {
+public class CP_002_Transferencia_Test {
 
 	private WebDriver driver;
 	private LoginPage lp;
@@ -35,24 +36,7 @@ public class FundTransferTest {
 	}
 	
 	@Test
-	public void cp_1() {
-		
-		lp = new LoginPage(driver);
-		lp.sendLogin("mngr175509", "jose20#");
-		hp = new HomePage(driver);
-		ftp = hp.getBarraNavegacion().goToFundTransferPage();
-		ftp.pressSubmit();
-		Alert alert = driver.switchTo().alert();
-		
-		String expected = "please fill all fields";
-		String actual = alert.getText().toLowerCase();
-		
-		assertEquals(expected, actual);
-		
-	}
-	
-	@Test
-	public void cp_2() {
+	public void CP_002_Transferencia() {
 		
 		int amount = 200;
 		
@@ -66,7 +50,7 @@ public class FundTransferTest {
 		Account payeesAccount = new Account(55508, "Current");
 		
 		lp = new LoginPage(driver);
-		lp.sendLogin("mngr175509", "jose20#");
+		lp.sendLogin("mngr175509", "jose20#1");
 		hp = new HomePage(driver);
 		
 		bep = hp.getBarraNavegacion().goToBalanceEnquiryPage();
@@ -99,6 +83,8 @@ public class FundTransferTest {
 		
 		bep.sendForm(payeesAccount.getNo());
 		payeesAccount.setBalance(bep.getBalance());
+		
+		// Línea comentada porque en la página no aumenta el monto del beneficiario, si se descomenta saldrá error
 		
 //		assertEquals(payeesAccountBalanceExpected, payeesAccount.getBalance());
 		

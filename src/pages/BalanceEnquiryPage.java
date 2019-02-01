@@ -8,7 +8,7 @@ public class BalanceEnquiryPage {
 	private WebDriver driver;
 	private By accountNumberField;
 	private By submitButton;
-	
+
 	public BalanceEnquiryPage(WebDriver driver) {
 		this.driver = driver;
 		accountNumberField = By.name("accountno");
